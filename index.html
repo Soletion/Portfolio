@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio de Natasha Solange Marcos Curbalan - Desarrolladora Web Junior"
+    />
+    <meta
+      name="keywords"
+      content="portfolio, desarrolladora web, frontend, Java, React, proyectos, CV, junior"
+    />
+    <title>Portfolio | Natasha Solange Marcos Curbalan</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/animation.js" defer></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <nav aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#aprendiendo">Aprendiendo</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="inicio" class="hero">
+        <div class="fondo-animado"></div>
+        <div class="hero-content">
+          <h1>Natasha Solange Marcos Curbalan</h1>
+          <p id="typing-text"></p>
+        </div>
+        <a
+          href="#sobre-mi"
+          class="scroll-down"
+          aria-label="Desplazarse hacia abajo"
+        >
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </section>
+
+      <main>
+        <!-- Sobre mí -->
+        <section id="sobre-mi">
+          <div class="section-title">
+            <h2>Sobre mí</h2>
+          </div>
+          <div class="about-container">
+            <div class="about-text">
+              <p>
+                Mi nombre es Natasha y combino pasión por la tecnología con
+                capacidad de análisis y experiencia en mundos diversos. Desde
+                criminología y hostelería hasta el desarrollo web, siempre busco
+                aprender y crecer adaptándome rápidamente.
+              </p>
+              <p>
+                ¿Cómo me defino? Creativa, resolutiva y con ganas de aportar
+                ideas frescas. Mi punto fuerte es convertir problemas en
+                oportunidades y mantenerme al día con nuevas herramientas y
+                tendencias. ¡Vamos a crear un impacto juntos!
+              </p>
+            </div>
+            <div
+              class="profile-pic"
+              tabindex="0"
+              aria-label="Foto de perfil interactiva"
+            >
+              <img
+                src="assets/images/foto-perfil.jpg"
+                loading="lazy"
+                alt="Foto de Natasha Solange Marcos Curbalan"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Habilidades -->
+        <section id="habilidades">
+          <div class="section-title">
+            <h2>Habilidades</h2>
+          </div>
+          <div class="skills-container">
+            <!-- Habilidades técnicas -->
+            <div class="skill-category">
+              <h3>Habilidades técnicas</h3>
+              <ul class="skills-list">
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>Git & GitHub</li>
+                <li>Python</li>
+                <li>Swing</li>
+                <li>Java Persistence API (JPA)</li>
+                <li>ObjectDB</li>
+                <li>Maven</li>
+                <li>MySQL</li>
+                <li>VSCode</li>
+              </ul>
+            </div>
+            <!-- Habilidades blandas -->
+            <div class="skill-category">
+              <h3>Habilidades blandas</h3>
+              <ul class="skills-list">
+                <li>Pensamiento crítico</li>
+                <li>Análisis y resolución de problemas</li>
+                <li>Comunicación efectiva (oral y escrita)</li>
+                <li>Trabajo interdisciplinario y en equipo</li>
+                <li>Ética profesional y confidencialidad</li>
+                <li>Adaptabilidad a contextos complejos</li>
+                <li>Adaptabilidad al cambio tecnológico</li>
+                <li>Tolerancia a la frustración</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proyectos -->
+        <section id="proyectos">
+          <h2>Proyectos Destacados</h2>
+          <div class="proyectos">
+            <div class="proyectos">
+              <p>
+                Aquí algunos de mis proyectos más destacados. Haz clic en GitHub
+                para ver el código y más detalles.
+              </p>
+            </div>
+          <div class="projects-container">
+            <div class="project-wrapper">
+              <!-- Proyecto 1 -->
+              <div class="card">
+                <div class="content">
+                  <div class="back">
+                    <div class="back-content">
+                      <img src="assets/images/logopython.png" alt="Logo" class="logo" />
+                      <strong>Calendario</strong>
+                    </div>
+                  </div>
+                  <div class="front">
+                    <div class="img">
+                      <img src="assets/images/Calendario.png" alt="Captura del Calendario" loading="lazy" />
+                      <div class="circle"></div>
+                      <div class="circle" id="right"></div>
+                      <div class="circle" id="bottom"></div>
+                    </div>
+                    <div class="front-content">
+                      <div class="description">
+                        <div class="title">
+                          <p class="title"><strong>Calendario</strong></p>
+                          <svg ...></svg>
+                        </div>
+                        <p class="card-footer">Calendario | Python, LocalStorage</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="https://github.com/Soletion/Calendario"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="repo-link"
+                aria-label="Ver repositorio GitHub del proyecto"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+            <div class="project-wrapper">
+              <!-- Proyecto 2 -->
+              <div class="card">
+                <div class="content">
+                  <div class="back">
+                    <div class="back-content">
+                      <img src="assets/images/logohtml.png" alt="Logo" class="logo" />
+                      <strong>ToDo App</strong>
+                    </div>
+                  </div>
+                  <div class="front">
+                    <div class="img">
+                      <img src="assets/images/TaskMaster.png" alt="Captura de la aplicación ToDo" loading="lazy" />
+                      <div class="circle"></div>
+                      <div class="circle" id="right"></div>
+                      <div class="circle" id="bottom"></div>
+                    </div>
+                    <div class="front-content">
+                      <div class="description">
+                        <div class="title">
+                          <p class="title"><strong>ToDo App</strong></p>
+                        </div>
+                        <p class="card-footer">Gestor de tareas | HTML/CSS & LocalStorage</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="https://github.com/Soletion/ToDo-App"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="repo-link"
+                aria-label="Ver repositorio GitHub del proyecto"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+            <div class="project-wrapper">
+              <!-- Proyecto 3 -->
+              <div class="card">
+                <div class="content">
+                  <div class="back">
+                    <div class="back-content">
+                      <img src="assets/images/logojava.png" alt="Logo" class="logo" />
+                      <strong>BibliotecaApp</strong>
+                    </div>
+                  </div>
+                  <div class="front">
+                    <div class="img">
+                      <img src="assets/images/BibliotecaApp.png" alt="Captura de la BibliotecaApp" loading="lazy" />
+                      <div class="circle"></div>
+                      <div class="circle" id="right"></div>
+                      <div class="circle" id="bottom"></div>
+                    </div>
+                    <div class="front-content">
+                      <div class="description">
+                        <div class="title">
+                          <p class="title"><strong>BibliotecaApp</strong></p>
+                        </div>
+                        <p class="card-footer">Aplicación de gestión | Java, Swing, DAO Pattern, ObjectDB</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a
+                href="https://github.com/Soletion/BibliotecaApp"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="repo-link"
+                aria-label="Ver repositorio GitHub del proyecto"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Sección Aprendiendo -->
+        <section id="aprendiendo">
+          <div class="section-title">
+            <h2>Aprendiendo</h2>
+          </div>
+          <div class="learning-container">
+            <ul class="learning-list">
+              <li>
+                <strong>PHP</strong>: Mejorando desarrollo backend con enfoque
+                en seguridad y optimización.
+              </li>
+              <li>
+                <strong>AWS</strong>: Aprendiendo servicios en la nube para
+                desplegar y escalar aplicaciones.
+              </li>
+              <li>
+                <strong>React</strong>: Dominando la creación de interfaces
+                dinámicas y componentes reutilizables.
+              </li>
+              <li>
+                <strong>Angular</strong>: Explorando frameworks frontend para
+                aplicaciones complejas y escalables.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+          <div class="section-title">
+            <h2>Contacto</h2>
+          </div>
+          <div class="contact-container">
+            <div class="contact-info">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Email</h3>
+                  <a href="mailto:nsmcurbalan@gmail.com"
+                    >nsmcurbalan@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>LinkedIn</h3>
+                  <a
+                    href="https://www.linkedin.com/in/natashasolange/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >linkedin.com/in/natashasolange</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fab fa-github"></i>
+                </div>
+                <div class="contact-text">
+                  <a
+                    href="https://github.com/Soletion"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >github.com/Soletion</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-file-download"></i>
+                </div>
+                <div class="contact-text">
+                  <h3>Curriculum</h3>
+                  <a
+                    href="assets/CV_Natasha_Solange_Marcos_Curbalan.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Descargar CV</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="contact-form">
+              <form>
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input type="text" id="name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="message">Mensaje</label>
+                  <textarea
+                    id="message"
+                    class="form-control"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-block">
+                  Enviar mensaje
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer>
+        <div class="footer-content">
+          <p class="copyright">
+            © 2025 Natasha Solange. Todos los derechos reservados.
+          </p>
+        </div>
+      </footer>
+
+      <!-- Botón modo oscuro -->
+      <button class="dark-mode-toggle" aria-label="Alternar modo oscuro">
+        <i class="fas fa-moon"></i>
+      </button>
+
+      <!-- Botón volver arriba -->
+      <button class="back-to-top" aria-label="Volver al inicio">
+        <i class="fas fa-arrow-up"></i>
+      </button>
+    </div>
+  </body>
+</html>
