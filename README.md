@@ -2,7 +2,7 @@
 
 ## 🚀 Descripción
 
-Portfolio personal desarrollado como parte del proyecto final del curso "Primeros pasos del desarrollo frontend" de Ticmas Academy. Este sitio web muestra mis habilidades, proyectos y experiencia como Desarrolladora Web Junior.
+Portfolio personal que muestra mis habilidades, proyectos y experiencia como Desarrolladora Web Junior.
 
 ## ✨ Características
 
