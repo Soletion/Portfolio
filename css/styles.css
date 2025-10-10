@@ -23,12 +23,18 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; 
+}
+
 body {
   font-family: "Montserrat", Arial, sans-serif;
   background: var(--bg-light);
   color: var(--text-light);
   transition: var(--transition);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 body.dark-mode {
@@ -179,10 +185,6 @@ nav a:focus-visible::after {
   }
 }
 
-html {
-  scroll-padding-top: 100px; 
-}
-
 /* Hero section */
 .hero {
   min-height: 100vh;
@@ -233,6 +235,7 @@ html {
   letter-spacing: 2px;
   text-shadow: 0 2px 8px rgba(255,111,49,0.13);
 }
+
 @keyframes textoAnimado {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
@@ -257,10 +260,13 @@ html {
   animation: float 2s ease-in-out infinite;
   cursor: pointer;
   transition: var(--transition);
+  text-decoration: none;
+  z-index: 2;
 }
 
 .scroll-down:hover {
   transform: translateX(-50%) translateY(5px);
+  color: var(--menu-hover);
 }
 
 /* Secciones principales */
@@ -412,12 +418,27 @@ body.dark-mode .skill-category:hover {
 }
 
 /* Proyectos */
+.projects-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .projects-container {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
   padding: 1rem 0;
+}
+
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .card {
@@ -634,6 +655,38 @@ body.dark-mode .skill-category:hover {
   background: var(--primary-dark);
   color: var(--bg-light);
   outline: none;
+  transform: translateY(-2px);
+}
+
+/* Sección Aprendiendo */
+.learning-container {
+  background: var(--card-bg);
+  padding: 1.8rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+body.dark-mode .learning-container {
+  background: var(--card-bg-dark);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.learning-list {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+}
+
+body.dark-mode .learning-list {
+  color: var(--text-dark);
+}
+
+.learning-list li + li {
+  margin-top: 1rem;
 }
 
 /* Contacto */
@@ -818,11 +871,13 @@ footer {
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: var(--transition);
+  opacity: 0.9;
 }
 
 .dark-mode-toggle:hover {
   transform: scale(1.1) rotate(30deg);
   background: var(--primary-dark);
+  opacity: 1;
 }
 
 /* Botón volver arriba */
@@ -848,19 +903,21 @@ footer {
   transition: var(--transition);
 }
 
-.back-to-top.visible {
-  opacity: 1;
+.back-to-top.show {
+  opacity: 0.9;
   visibility: visible;
 }
 
 .back-to-top:hover {
   transform: translateY(-5px);
   background: var(--primary-dark);
+  opacity: 1;
 }
 
 /* Efectos de scroll */
 .section-title {
   overflow: hidden;
+  text-align: center;
 }
 
 .section-title h2 {
@@ -913,8 +970,13 @@ section.active .section-title h2 {
     padding: 3rem 0;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .projects-container {
+    gap: 1.5rem;
+  }
+  
+  .card {
+    width: 280px;
+    height: 380px;
   }
 }
 
@@ -944,39 +1006,24 @@ section.active .section-title h2 {
     width: 40px;
     height: 40px;
     font-size: 1rem;
+    bottom: 20px;
+    right: 20px;
   }
 
   .back-to-top {
-    bottom: 80px;
+    bottom: 70px;
   }
-}
-
-.learning-container {
-  background: var(--card-bg);
-  padding: 1.8rem 2rem;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-body.dark-mode .learning-container {
-  background: var(--card-bg-dark);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
-
-.learning-list {
-  list-style-type: disc;
-  padding-left: 1.2rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-light);
-}
-
-body.dark-mode .learning-list {
-  color: var(--text-dark);
-}
-
-.learning-list li + li {
-  margin-top: 1rem;
+  
+  .card {
+    width: 260px;
+    height: 360px;
+  }
+  
+  .learning-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .learning-list {
+    font-size: 1rem;
+  }
 }

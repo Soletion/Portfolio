@@ -1,30 +1,60 @@
-// animation.js
-document.addEventListener("DOMContentLoaded", function () {
-  // Efecto de escritura en el título
-  const titleElement = document.querySelector(".title");
-  const titleText = titleElement.textContent;
-  titleElement.textContent = "";
 
-  let index = 0;
-  function type() {
-    if (index < titleText.length) {
-      titleElement.textContent += titleText.charAt(index);
-      index++;
-      setTimeout(type, 100);
+document.addEventListener("DOMContentLoaded", function () {
+  // Efecto de escritura en el texto del hero
+  const typingElement = document.getElementById("typing-text");
+  const phrases = [
+    "Desarrolladora Web Junior | Apasionada por la tecnología y el aprendizaje constante 🚀",
+  ];
+  
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let isEnd = false;
+  
+  function typeWriter() {
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+      // Borrando caracteres
+      typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      // Escribiendo caracteres
+      typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
     }
+    
+    // Determinar la velocidad de escritura/borrado
+    let typeSpeed = 100; 
+    
+    if (isDeleting) {
+      typeSpeed /= 2; 
+    }
+    
+    // Cuando termine de escribir una frase
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isEnd = true;
+      typeSpeed = 2000; 
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex++;
+      if (phraseIndex >= phrases.length) {
+        phraseIndex = 0;
+      }
+    }
+    
+    setTimeout(typeWriter, typeSpeed);
   }
-  type();
-  // Efecto de parpadeo en el cursor
-  const cursor = document.querySelector(".cursor");
-  setInterval(() => {
-    cursor.classList.toggle("active");
-  }, 500);
+  
+  // Iniciar el efecto después de un breve delay
+  setTimeout(typeWriter, 1000);
 
   // Modo oscuro
   const darkModeToggle = document.querySelector(".dark-mode-toggle");
   const darkModeIcon = darkModeToggle.querySelector("i");
 
-  // Verificar preferencia del usuario
+  // Detectar preferencia del sistema y estado guardado
   const prefersDarkMode = window.matchMedia(
     "(prefers-color-scheme: dark)"
   ).matches;
@@ -47,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Scroll suave para enlaces
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  // Scroll suave para enlaces de navegación
+  document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
 
@@ -57,32 +87,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
-        targetElement.scrollIntoView({
+        const offsetTop = targetElement.offsetTop - 80; // Ajuste para el header fijo
+        
+        window.scrollTo({
+          top: offsetTop,
           behavior: "smooth",
         });
       }
     });
   });
-    // Mostrar texto "Sobre mí" al hacer clic en la imagen
-  const profileImage = document.getElementById('profile-image');
-  const sobreMiText = document.getElementById('sobre-mi-text');
-  
-  if (profileImage && sobreMiText) {
-    profileImage.addEventListener('click', function() {
-      sobreMiText.style.opacity = '1';
-      setTimeout(() => {
-        sobreMiText.style.opacity = '0';
-      }, 2000);
-    });
-  }
+
   // Mostrar/ocultar botón "volver arriba"
   const backToTopButton = document.querySelector(".back-to-top");
 
   window.addEventListener("scroll", function () {
     if (window.pageYOffset > 300) {
-      backToTopButton.classList.add("visible");
+      backToTopButton.classList.add("show");
     } else {
-      backToTopButton.classList.remove("visible");
+      backToTopButton.classList.remove("show");
     }
   });
 
@@ -111,109 +133,176 @@ document.addEventListener("DOMContentLoaded", function () {
   checkScroll();
   window.addEventListener("scroll", checkScroll);
 
-  // Efecto hover en tarjetas de proyectos
-  const projectCards = document.querySelectorAll(".project-card");
+  // Efecto hover en tarjetas de proyectos (para las tarjetas flip)
+  const projectCards = document.querySelectorAll(".card");
 
   projectCards.forEach((card) => {
-    card.addEventListener("mousemove", function (e) {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const angleX = (y - centerY) / 20;
-      const angleY = (centerX - x) / 20;
-
-      card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.05)`;
+    card.addEventListener("mouseenter", function () {
+      this.style.transform = "scale(1.02)";
+      this.style.transition = "transform 0.3s ease";
     });
 
     card.addEventListener("mouseleave", function () {
-      card.style.transform = "";
+      this.style.transform = "scale(1)";
     });
   });
 
-  // Validación del formulario
-  const contactForm = document.querySelector("form");
+  // Validación del formulario de contacto
+  const contactForm = document.querySelector("#contact-form");
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Validación simple
+      // Validación de campos
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      if (name && email && message) {
-        alert("¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.");
-        contactForm.reset();
-      } else {
-        alert("Por favor completa todos los campos del formulario.");
+      // Validación simple de email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !message) {
+        showNotification("Por favor completa todos los campos del formulario.", "error");
+        return;
       }
+
+      if (!emailRegex.test(email)) {
+        showNotification("Por favor ingresa un email válido.", "error");
+        return;
+      }
+
+      // Simular envío del formulario
+      showNotification("¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.", "success");
+      contactForm.reset();
     });
   }
 
-  // Animación de la foto de perfil
+  // Función para mostrar notificaciones
+  function showNotification(message, type) {
+    // Crear elemento de notificación
+    const notification = document.createElement("div");
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    
+    // Estilos de la notificación
+    notification.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      padding: 15px 20px;
+      border-radius: 5px;
+      color: white;
+      font-weight: 500;
+      z-index: 10000;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      max-width: 300px;
+    `;
+    
+    if (type === "success") {
+      notification.style.background = "#4CAF50";
+    } else {
+      notification.style.background = "#f44336";
+    }
+    
+    document.body.appendChild(notification);
+    
+    // Animación de entrada
+    setTimeout(() => {
+      notification.style.transform = "translateX(0)";
+    }, 100);
+    
+    // Remover después de 5 segundos
+    setTimeout(() => {
+      notification.style.transform = "translateX(100%)";
+      setTimeout(() => {
+        if (notification.parentNode) {
+          notification.parentNode.removeChild(notification);
+        }
+      }, 300);
+    }, 5000);
+  }
+
+  // Animación de la foto de perfil al hacer clic
   const profilePic = document.querySelector(".profile-pic");
   if (profilePic) {
     profilePic.addEventListener("click", function () {
-      this.classList.add("animate__animated", "animate__pulse");
-
-      // Eliminar la clase después de la animación
+      this.style.transform = "scale(1.1) rotate(5deg)";
+      
       setTimeout(() => {
-        this.classList.remove("animate__animated", "animate__pulse");
-      }, 1000);
+        this.style.transform = "";
+      }, 600);
+    });
+    
+    // Animar al hacer hover
+    profilePic.addEventListener("mouseenter", function () {
+      this.style.transition = "transform 0.3s ease";
     });
   }
-});
 
-// Animación de carga
-  document.addEventListener('DOMContentLoaded', function() {
-    const textElement = document.getElementById('typing-text');
-    const phrases = [
-      "Desarrolladora Web Junior | Apasionada por la tecnología y el aprendizaje constante 🚀",
-    ];
-    
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let isEnd = false;
-    
-    function typeWriter() {
-      const currentPhrase = phrases[phraseIndex];
+  // Efecto de scroll para el enlace "scroll-down"
+  const scrollDownLink = document.querySelector(".scroll-down");
+  if (scrollDownLink) {
+    scrollDownLink.addEventListener("click", function (e) {
+      e.preventDefault();
       
-      if (isDeleting) {
-        // Borrando caracteres
-        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        // Escribiendo caracteres
-        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
+      const targetSection = document.querySelector("#sobre-mi");
+      if (targetSection) {
+        const offsetTop = targetSection.offsetTop - 80;
+        
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
       }
-      
-      // Determinar la velocidad de escritura/borrado
-      let typeSpeed = 100; 
-      
-      if (isDeleting) {
-        typeSpeed /= 2; 
+    });
+  }
+
+  // Mejorar accesibilidad del formulario
+  const formInputs = document.querySelectorAll(".form-control");
+  formInputs.forEach(input => {
+    // Agregar etiquetas ARIA dinámicamente
+    if (!input.getAttribute("aria-label")) {
+      const label = input.previousElementSibling;
+      if (label && label.tagName === "LABEL") {
+        input.setAttribute("aria-label", label.textContent);
       }
-      
-      // Cuando termine de escribir una frase
-      if (!isDeleting && charIndex === currentPhrase.length) {
-        isEnd = true;
-        typeSpeed = 2000; 
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex++;
-        if (phraseIndex >= phrases.length) {
-          phraseIndex = 0;
-        }
-      }
-      
-      setTimeout(typeWriter, typeSpeed);
     }
     
-    // Iniciar el efecto
-    setTimeout(typeWriter, 1000);
+    // Feedback visual al enfocar
+    input.addEventListener("focus", function() {
+      this.parentElement.classList.add("focused");
+    });
+    
+    input.addEventListener("blur", function() {
+      this.parentElement.classList.remove("focused");
+    });
   });
+
+  // Prevenir envío del formulario con Enter en campos individuales
+  document.querySelectorAll('.form-control').forEach(input => {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter' && !e.target.form) {
+        e.preventDefault();
+      }
+    });
+  });
+});
+
+// CSS adicional para estados de formulario
+const additionalStyles = `
+  .form-group.focused label {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  
+  .form-group.focused .form-control {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 111, 49, 0.1);
+  }
+`;
+
+// Inyectar estilos adicionales
+const styleSheet = document.createElement("style");
+styleSheet.textContent = additionalStyles;
+document.head.appendChild(styleSheet);

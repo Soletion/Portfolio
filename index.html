@@ -28,21 +28,23 @@
   </head>
   <body>
     <div class="app-container">
-      <nav aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#aprendiendo">Aprendiendo</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <header>
+        <nav aria-label="Navegación principal">
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#proyectos">Proyectos</a>
+          <a href="#aprendiendo">Aprendiendo</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </header>
 
       <!-- Hero Section -->
       <section id="inicio" class="hero">
         <div class="fondo-animado"></div>
         <div class="hero-content">
           <h1>Natasha Solange Marcos Curbalan</h1>
-          <p id="typing-text"></p>
+          <p id="typing-text">Desarrolladora Web Junior</p>
         </div>
         <a
           href="#sobre-mi"
@@ -130,14 +132,15 @@
 
         <!-- Proyectos -->
         <section id="proyectos">
-          <h2>Proyectos Destacados</h2>
-          <div class="proyectos">
-            <div class="proyectos">
-              <p>
-                Aquí algunos de mis proyectos más destacados. Haz clic en GitHub
-                para ver el código y más detalles.
-              </p>
-            </div>
+          <div class="section-title">
+            <h2>Proyectos Destacados</h2>
+          </div>
+          <div class="projects-intro">
+            <p>
+              Aquí algunos de mis proyectos más destacados. Haz clic en GitHub
+              para ver el código y más detalles.
+            </p>
+          </div>
           <div class="projects-container">
             <div class="project-wrapper">
               <!-- Proyecto 1 -->
@@ -145,7 +148,7 @@
                 <div class="content">
                   <div class="back">
                     <div class="back-content">
-                      <img src="assets/images/logopython.png" alt="Logo" class="logo" />
+                      <img src="assets/images/logopython.png" alt="Logo Python" class="logo" />
                       <strong>Calendario</strong>
                     </div>
                   </div>
@@ -160,7 +163,6 @@
                       <div class="description">
                         <div class="title">
                           <p class="title"><strong>Calendario</strong></p>
-                          <svg ...></svg>
                         </div>
                         <p class="card-footer">Calendario | Python, LocalStorage</p>
                       </div>
@@ -173,7 +175,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="repo-link"
-                aria-label="Ver repositorio GitHub del proyecto"
+                aria-label="Ver repositorio GitHub del proyecto Calendario"
               >
                 <i class="fab fa-github"></i> GitHub
               </a>
@@ -185,7 +187,7 @@
                 <div class="content">
                   <div class="back">
                     <div class="back-content">
-                      <img src="assets/images/logohtml.png" alt="Logo" class="logo" />
+                      <img src="assets/images/logohtml.png" alt="Logo HTML" class="logo" />
                       <strong>ToDo App</strong>
                     </div>
                   </div>
@@ -212,7 +214,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="repo-link"
-                aria-label="Ver repositorio GitHub del proyecto"
+                aria-label="Ver repositorio GitHub del proyecto ToDo App"
               >
                 <i class="fab fa-github"></i> GitHub
               </a>
@@ -224,7 +226,7 @@
                 <div class="content">
                   <div class="back">
                     <div class="back-content">
-                      <img src="assets/images/logojava.png" alt="Logo" class="logo" />
+                      <img src="assets/images/logojava.png" alt="Logo Java" class="logo" />
                       <strong>BibliotecaApp</strong>
                     </div>
                   </div>
@@ -251,12 +253,11 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="repo-link"
-                aria-label="Ver repositorio GitHub del proyecto"
+                aria-label="Ver repositorio GitHub del proyecto BibliotecaApp"
               >
                 <i class="fab fa-github"></i> GitHub
               </a>
             </div>
-
           </div>
         </section>
 
@@ -324,6 +325,7 @@
                   <i class="fab fa-github"></i>
                 </div>
                 <div class="contact-text">
+                  <h3>GitHub</h3>
                   <a
                     href="https://github.com/Soletion"
                     target="_blank"
@@ -348,7 +350,7 @@
               </div>
             </div>
             <div class="contact-form">
-              <form>
+              <form id="contact-form">
                 <div class="form-group">
                   <label for="name">Nombre</label>
                   <input type="text" id="name" class="form-control" required />
