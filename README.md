@@ -1,10 +1,10 @@
 # Portfolio - Natasha Solange Marcos Curbalan
 
-## 🚀 Descripción
+## Descripción
 
 Portfolio personal que muestra mis habilidades, proyectos y experiencia como Desarrolladora Web Junior.
 
-## ✨ Características
+## Características
 
 - **Diseño Responsivo** - Adaptable a todos los dispositivos
 - **Modo Oscuro/Claro** - Con detección automática de preferencias del sistema
@@ -14,7 +14,7 @@ Portfolio personal que muestra mis habilidades, proyectos y experiencia como Des
 - **Tarjetas de Proyectos 3D** - Efectos hover interactivos
 - **Optimización de Rendimiento** - Carga rápida y eficiente
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 ### Frontend
 - **HTML5** - Estructura semántica
@@ -34,7 +34,7 @@ Portfolio personal que muestra mis habilidades, proyectos y experiencia como Des
 - **Google Fonts** - Tipografía (Montserrat)
 - **Git & GitHub** - Control de versiones
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 portfolio/
@@ -56,7 +56,7 @@ portfolio/
 └── README.md               # Este archivo
 ```
 
-## 🎯 Secciones del Portfolio
+## Secciones del Portfolio
 
 1. **Inicio** - Presentación con efecto typing
 2. **Sobre mí** - Información personal y profesional
@@ -65,53 +65,24 @@ portfolio/
 5. **Aprendiendo** - Tecnologías en proceso de aprendizaje
 6. **Contacto** - Formulario e información de contacto
 
-## 📦 Proyectos Destacados
+## Proyectos Destacados
 
 ### 📅 Calendario
 - **Tecnologías**: Python, LocalStorage
 - **Descripción**: Aplicación de calendario interactivo
 - [Ver en GitHub](https://github.com/Soletion/Calendario)
 
-### ✅ ToDo App
+### ToDo App
 - **Tecnologías**: HTML, CSS, JavaScript, LocalStorage
 - **Descripción**: Gestor de tareas personal
 - [Ver en GitHub](https://github.com/Soletion/ToDo-App)
 
-### 📚 BibliotecaApp
+### BibliotecaApp
 - **Tecnologías**: Java, Swing, DAO Pattern, ObjectDB
 - **Descripción**: Sistema de gestión de biblioteca
 - [Ver en GitHub](https://github.com/Soletion/BibliotecaApp)
 
-## 🚀 Instalación y Uso
-
-### Prerrequisitos
-- Navegador web moderno
-- Servidor local (opcional, para desarrollo)
-
-### Pasos para ejecutar localmente
-
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/Soletion/portfolio.git
-   ```
-
-2. **Navegar al directorio**
-   ```bash
-   cd portfolio
-   ```
-
-3. **Abrir en el navegador**
-   - Abrir `index.html` directamente en el navegador
-   - O usar un servidor local:
-     ```bash
-     # Con Python
-     python -m http.server 8000
-     
-     # Con Node.js
-     npx http-server
-     ```
-
-## 🌟 Características Técnicas
+## Características Técnicas
 
 ### Performance
 - ✅ Optimización de imágenes (lazy loading)
@@ -131,16 +102,7 @@ portfolio/
 - ✅ URLs amigables
 - ✅ Sitemap implícito
 
-## 🎨 Personalización
-
-Para personalizar este portfolio:
-
-1. **Modificar colores**: Editar las variables CSS en `:root`
-2. **Cambiar contenido**: Actualizar el texto en `index.html`
-3. **Agregar proyectos**: Seguir la estructura existente en la sección de proyectos
-4. **Actualizar imágenes**: Reemplazar archivos en `assets/images/`
-
-## 📱 Compatibilidad
+## Compatibilidad
 
 - ✅ Chrome 90+
 - ✅ Firefox 88+
@@ -148,7 +110,7 @@ Para personalizar este portfolio:
 - ✅ Edge 90+
 - ✅ Dispositivos móviles
 
-## 👩‍💻 Autora
+## Autora
 
 **Natasha Solange Marcos Curbalan**
 - GitHub: [@Soletion](https://github.com/Soletion)
